@@ -1,5 +1,5 @@
 /**
- * v0.1
+ * v0.1.1
  */
 
 define(["utils/requests", "utils/cycle"], function (utilsRequests, utilsCycle) {
@@ -32,7 +32,11 @@ define(["utils/requests", "utils/cycle"], function (utilsRequests, utilsCycle) {
       return;
     }
 
-    for (var dataId of Object.keys(localizations[pageName])) {
+    var pageNames = Object.keys(localizations[pageName]);
+
+    for (var i = 0; i < pageNames.length; ++i) {
+      var dataId = pageNames[i];
+
       var element = document.querySelector(
         '[data-localizator-id="' + dataId + '"]'
       );
